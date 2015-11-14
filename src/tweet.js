@@ -10,6 +10,9 @@ var data = [
 ];
 
 var Twitter = React.createClass({
+  getInitialState: function() {
+    return {data: data};
+  },
   // loadTweetsFromServer: function () {
   //   // GET updated set of tweets from database
   //   $.get(this.props.url, function (data) {
@@ -32,8 +35,8 @@ var Twitter = React.createClass({
     return (
       <div className="twitter">
         <h1>Tweets</h1>
-        {/* Render TweetForm component here */}
-        {/* Render TweetList component here */}
+        <TweetForm />
+        <TweetList data={this.state.data}/>
       </div>
     );
   }
@@ -43,7 +46,7 @@ var TweetForm = React.createClass({
   render: function () {
     return (
       <form className="tweetForm">
-        {/* Render some text here */}
+        {"TweetForm"}
       </form>
     );
   }
@@ -53,7 +56,7 @@ var TweetList = React.createClass({
   render: function () {
     return (
       <div className="tweetList">
-        {/* Render some text here */}
+        {this.props.data}
       </div>
     );
   }
