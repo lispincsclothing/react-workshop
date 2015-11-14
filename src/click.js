@@ -2,10 +2,16 @@
 // State, on the other hand, is internal to document (dynamic data over time)
 
 var ClickCounter = React.createClass({
+  getInitialState: function() {
+    return {clicks: 0};
+  },
   render: function() {
     return (
       <button>
-      { this.props.text } 
+      { this.props.text }
+      <span className="badge">
+        { this.state.clicks }
+      </span>
       </button>
     );
   }
