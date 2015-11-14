@@ -5,9 +5,12 @@ var ClickCounter = React.createClass({
   getInitialState: function() {
     return {clicks: 0};
   },
+  handleBtnClick: function() {
+    alert("You clicked me");
+  },
   render: function() {
     return (
-      <button>
+      <button onClick={this.handleBtnClick} className="btn btn-primary">
       { this.props.text }
       <span className="badge">
         { this.state.clicks }
