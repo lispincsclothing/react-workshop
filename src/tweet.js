@@ -36,7 +36,7 @@ var Twitter = React.createClass({
       <div className="twitter">
         <h1>Tweets</h1>
         <TweetForm />
-        <TweetList data={this.state.data}/>
+        <TweetList data={this.props.data}/>
       </div>
     );
   }
@@ -73,6 +73,6 @@ var Tweet = React.createClass({
 });
 
 React.render(
-  <Twitter />,
+  <Twitter data={data}/>,
   document.getElementById('tweets')
 );
