@@ -1,5 +1,6 @@
 // Props are static (pass once, and you're done)
 // State, on the other hand, is internal to document (dynamic data over time)
+// Don't ever set state directly, e.g this.state.clicks=1.  Circumvents this.setState - use that!
 
 var ClickCounter = React.createClass({
   getInitialState: function() {
