@@ -1,25 +1,16 @@
-var data = [
-  {
-      "author": "Michael Scott",
-      "text": "Would I rather be feared or loved? Easy, both. I want people to be afraid of how much they love me."
-  },
-  {
-      "author": "Jeff Bezos",
-      "text": "In the end, we are our choices."
-  }
-];
 
 var Twitter = React.createClass({
   getInitialState: function() {
-    return {data: data};
+    return {data: []};
   },
-  // loadTweetsFromServer: function () {
-  //   // GET updated set of tweets from database
-  //   $.get(this.props.url, function (data) {
-  //       // Set state in step 3 of the exercise!
-  //     }.bind(this)
-  //   );
-  // },
+  loadTweetsFromServer: function () {
+    // GET updated set of tweets from database
+    $.get(this.props.url, function (data) {
+        // Set state in step 3 of the exercise!
+        this.setState({data:data});
+      }.bind(this)
+    );
+  },
   // handleTweetSubmit: function (tweet) {
   //   // POST to add tweet to database
   //   $.post(this.props.url, tweet, function (data) {
@@ -27,16 +18,16 @@ var Twitter = React.createClass({
   //     }.bind(this)
   //   );
   // },
-  // componentDidMount: function () {
-  //   // Set this.state.data to most recent set of tweets from database
-  //   this.loadTweetsFromServer();
-  // },
+  componentDidMount: function () {
+    // Set this.state.data to most recent set of tweets from database
+    this.loadTweetsFromServer();
+  },
   render: function () {
     return (
       <div className="twitter">
         <h1>Tweets</h1>
         <TweetForm />
-        <TweetList data={this.props.data}/>
+        <TweetList data={this.state.data}/>
       </div>
     );
   }
@@ -79,6 +70,6 @@ var Tweet = React.createClass({
 });
 
 React.render(
-  <Twitter data={data}/>,
+  <Twitter url={'tweets.json'}/>,
   document.getElementById('tweets')
 );
