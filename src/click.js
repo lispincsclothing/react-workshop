@@ -12,12 +12,24 @@ var ClickCounter = React.createClass({
   },
   render: function() {
     return (
+      <div>
       <button onClick={this.handleBtnClick} className="btn btn-primary">
       { this.props.text }
       <span className="badge">
         { this.state.clicks }
       </span>
       </button>
+      <ClickedNums />
+      </div>
+    );
+  }
+});
+
+
+var ClickedNums = React.createClass({
+  render: function(){
+    return(
+      <div>ClickedNums</div>
     );
   }
 });
