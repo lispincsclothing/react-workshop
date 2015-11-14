@@ -71,8 +71,8 @@ var Tweet = React.createClass({
   render: function () {
     return (
       <div className="tweet">
-        Author: {this.props.author}
-        Text: {this.props.text}
+        <h3>{this.props.author}</h3>
+        <p>{this.props.text}</p>
       </div>
     );
   }
