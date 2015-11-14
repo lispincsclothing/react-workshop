@@ -7,6 +7,6 @@ var Hello = React.createClass({
 })
 
 React.render(
-  <Hello title="React Example" />,
+  <Hello />,
   document.getElementById('hello')
 );
