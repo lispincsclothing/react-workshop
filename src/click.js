@@ -19,7 +19,7 @@ var ClickCounter = React.createClass({
         { this.state.clicks }
       </span>
       </button>
-      <ClickedNums />
+      <ClickedNums number={this.state.clicks}/>
       </div>
     );
   }
@@ -29,7 +29,7 @@ var ClickCounter = React.createClass({
 var ClickedNums = React.createClass({
   render: function(){
     return(
-      <div>ClickedNums</div>
+      <div>{this.props.number}</div>
     );
   }
 });
