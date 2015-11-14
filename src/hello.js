@@ -3,6 +3,7 @@ var Hello = React.createClass({
     return (
       <div>
         <h1>{this.props.title}</h1>
+        <h1>{this.props.foo}</h1>
         <div>Hello React!</div>
       </div>
     )
@@ -10,6 +11,6 @@ var Hello = React.createClass({
 })
 
 React.render(
-  <Hello title="React Example" />,
+  <Hello title="React Example" foo="test" />,
   document.getElementById('hello')
 );
