@@ -1,5 +1,17 @@
+// getInitialState has to return something to work
 var Hello = React.createClass({
+  getInitialState:function(){
+    alert('getInitialState');
+    return {};
+  },
+  componentWillMount:function(){
+    alert('componentWillMount');
+  },
+  componentDidMount:function(){
+    alert('componentDidMount');
+  },
   render: function() {
+    alert('rendering');
     return (
       <div>
         <h1>{this.props.title}</h1>
