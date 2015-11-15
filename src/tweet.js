@@ -1,3 +1,4 @@
+// Can pass down functions as props (how to put information from form)
 
 var Twitter = React.createClass({
   getInitialState: function() {
@@ -11,13 +12,13 @@ var Twitter = React.createClass({
       }.bind(this)
     );
   },
-  // handleTweetSubmit: function (tweet) {
-  //   // POST to add tweet to database
-  //   $.post(this.props.url, tweet, function (data) {
-  //       // Set state in step 6 of the exercise!
-  //     }.bind(this)
-  //   );
-  // },
+  handleTweetSubmit: function (tweet) {
+    // POST to add tweet to database
+    $.post(this.props.url, tweet, function (data) {
+         this.setState({data:data});
+      }.bind(this)
+    );
+  },
   componentDidMount: function () {
     // Set this.state.data to most recent set of tweets from database
     this.loadTweetsFromServer();
@@ -26,7 +27,7 @@ var Twitter = React.createClass({
     return (
       <div className="twitter">
         <h1>Tweets</h1>
-        <TweetForm />
+        <TweetForm onTweetSubmit={this.handleTweetSubmit}/>
         <TweetList data={this.state.data}/>
       </div>
     );
@@ -38,7 +39,10 @@ var TweetForm = React.createClass({
     e.preventDefault();
     var text = React.findDOMNode(this.refs.text).value
     var author = React.findDOMNode(this.refs.author).value
-    alert("author: " + author + " tweet: " + text);
+    // alert("author: " + author + " tweet: " + text);
+    this.props.onTweetSubmit({author:author,text:text});
+    text.value=""
+    author.value=""
   },
   render: function () {
     return (
