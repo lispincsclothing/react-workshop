@@ -34,9 +34,13 @@ var Twitter = React.createClass({
 });
 
 var TweetForm = React.createClass({
+  handleBtnSubmit:function(e){
+    // e.preventDefault();
+    alert("Pressed handleBtnSubmit");
+  },
   render: function () {
     return (
-      <form className="tweetForm">
+      <form className="tweetForm" onSubmit={this.handleBtnSubmit}>
         <input type="text" placeholder="Author Name" />
         <input type="text" placeholder="Tweet"  />
         <button type="submit" className="btn btn-primary">Tweet</button>
