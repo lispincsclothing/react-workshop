@@ -35,14 +35,16 @@ var Twitter = React.createClass({
 
 var TweetForm = React.createClass({
   handleBtnSubmit:function(e){
-    // e.preventDefault();
-    alert("Pressed handleBtnSubmit");
+    e.preventDefault();
+    var text = React.findDOMNode(this.refs.text).value
+    var author = React.findDOMNode(this.refs.author).value
+    alert("author: " + author + " tweet: " + text);
   },
   render: function () {
     return (
       <form className="tweetForm" onSubmit={this.handleBtnSubmit}>
-        <input type="text" placeholder="Author Name" />
-        <input type="text" placeholder="Tweet"  />
+        <input type="text" placeholder="Author Name" ref="author"/>
+        <input type="text" placeholder="Tweet" ref="text" />
         <button type="submit" className="btn btn-primary">Tweet</button>
       </form>
     );
